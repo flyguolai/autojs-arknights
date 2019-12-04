@@ -1,0 +1,22 @@
+{
+    "name": "arknights-autojs",
+    "$schema": "./node_modules/autojs-dev/template/schema.json",
+    "project": {
+        "name": ""
+    },
+    "generate": {
+        "language": "typescript",
+        "dir": "./scripts"
+    },
+    "screencap": {
+        "dir": "./screencap"
+    },
+    "images": {
+        "dir": "./images",
+        "port": 3400
+    },
+    "compile": {
+        "src": "./scripts",
+        "output": "./output"
+    }
+}

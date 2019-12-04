@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "module": "CommonJS",
+        "lib": [
+            "es2015"
+        ],
+        "removeComments": false,
+        "skipLibCheck": true,
+        "sourceMap": false
+    },
+    
+    
+}

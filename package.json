@@ -1,0 +1,13 @@
+{
+    "name": "arknights-autojs",
+    "version": "0.0.0",
+    "description": "A Auto.js Script Project.",
+    "devDependencies": {
+        "autojs-dev": "0.7.1"
+    },
+    "scripts": {
+        "build":"autojs build"
+    },
+    "author": "",
+    "license": "GPL-3.0"
+}

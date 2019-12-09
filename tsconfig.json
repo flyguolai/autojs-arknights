@@ -1,14 +1,20 @@
 {
     "compilerOptions": {
         "target": "ES5",
-        "module": "CommonJS",
+        "module": "ES6",
         "lib": [
-            "es2015"
+            "es2015",
+            "DOM"
         ],
         "removeComments": false,
         "skipLibCheck": true,
-        "sourceMap": false
+        "sourceMap": false,
+        "esModuleInterop": true
     },
-    
-    
+    "include": [
+        "scripts/**/*",
+        "global.d.ts",
+        "node_modules/autojs-dev/types/auto.d.ts"
+    ],
+    "exclude": []
 }

@@ -22,14 +22,19 @@ export class MissionContext implements IContext{
 
     start(){
         this.currentState = this.MissionReadyState
+        toast('开始')
         setTimeout(() => {
-            this.interval = setInterval(() => {this.currentState.checkState()}, 10 + getRandomSecond() * SECOND)
-        },5)
+            this.interval = setInterval(() => {this.currentState.checkState()}, 5 + getRandomSecond() * SECOND)
+        },2)
     }
 
     stop(){
         clearInterval(this.interval);
 
+        toast('脚本停止')
+
         this.currentState = this.MissionReadyState
+
+        exit()
     }
 }

@@ -15,6 +15,7 @@ class Index {
         if(launch_result){
             mission.start()
         }else{
+            exit()
             toast('启动失败')
         }
     }

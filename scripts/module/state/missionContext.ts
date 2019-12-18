@@ -22,8 +22,9 @@ export class MissionContext implements IContext{
 
     start(){
         this.currentState = this.MissionReadyState
-
-        setInterval(() => {this.currentState.checkState()}, 10 + getRandomSecond() * SECOND)
+        setTimeout(() => {
+            this.interval = setInterval(() => {this.currentState.checkState()}, 10 + getRandomSecond() * SECOND)
+        },5)
     }
 
     stop(){

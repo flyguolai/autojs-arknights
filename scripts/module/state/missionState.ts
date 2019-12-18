@@ -23,6 +23,7 @@ export class MissionReadyState implements IMissionState {
     }
 
     checkState(){
+        toast('查找开始行动（蓝色）')
         const point = findImage(MISSION_READY)
         if(point){
             this.goNextState(point)
@@ -59,6 +60,7 @@ export class MissionSelectMemberState implements IMissionState {
     }
 
     checkState(){
+        toast('查找开始行动（红色）')
         const point = findImage(MISSION_SELECT_MENBER)
         if(point){
             this.goNextState(point)
@@ -100,10 +102,12 @@ export class MissionFightingState implements IMissionState {
         const fighting_point = findImage(MISSION_FIGHTING)
         const complete_point = findImage(MISSION_COMPLETE)
         if(fighting_point){
+            toast('战斗中')
             return 
         }
 
         if(complete_point){
+            toast('战斗结束')
             this.goNextState()
         }
 
@@ -132,6 +136,7 @@ export class MissionFinishState implements IMissionState {
     }
 
     checkState(){
+        toast('查找战斗结束')
         const point = findImage(MISSION_COMPLETE)
         if(point){
             this.goNextState(point)

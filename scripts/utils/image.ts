@@ -5,7 +5,7 @@ export const findImage = target => {
 
   var targetImage = images.fromBase64(target);
   var p = images.findImage(bigImage, targetImage, {
-    threshold: 0.8
+    threshold: 0.3
   });
   if (p) {
     toast("找到啦" + p);

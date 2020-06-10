@@ -6,7 +6,7 @@ import MISSION_SELECT_MENBER from './images/mission_member.jpg'
 import MISSION_FIGHTING from './images/mission_fighting.jpg'
 import MISSION_COMPLETE from './images/mission_complete.jpg'
 
-import { findImage } from "../../utils/image";
+import { m_findImage } from "../../utils/image";
 import { SECOND, getRandomSecond } from "../../utils/time";
 import { RandomClick } from "../../utils/tap";
 
@@ -23,8 +23,8 @@ export class MissionReadyState implements IMissionState {
     }
 
     checkState(){
-        toast('查找开始行动（蓝色）')
-        const point = findImage(MISSION_READY)
+        console.log('查找开始行动（蓝色）')
+        const point = m_findImage(MISSION_READY)
         if(point){
             this.goNextState(point)
         }else{
@@ -35,7 +35,7 @@ export class MissionReadyState implements IMissionState {
     goNextState(point:Point){
         RandomClick(point.x,point.y)
         setTimeout(() => {
-            const point = findImage(MISSION_SELECT_MENBER)
+            const point = m_findImage(MISSION_SELECT_MENBER)
             if(point){
                 this.nextState()
             }else{
@@ -60,8 +60,8 @@ export class MissionSelectMemberState implements IMissionState {
     }
 
     checkState(){
-        toast('查找开始行动（红色）')
-        const point = findImage(MISSION_SELECT_MENBER)
+        console.log('查找开始行动（红色）')
+        const point = m_findImage(MISSION_SELECT_MENBER)
         if(point){
             this.goNextState(point)
         }else{
@@ -72,7 +72,7 @@ export class MissionSelectMemberState implements IMissionState {
     goNextState(point:Point){
         RandomClick(point.x,point.y)
         setTimeout(() => {
-            const point = findImage(MISSION_FIGHTING)
+            const point = m_findImage(MISSION_FIGHTING)
             if(point){
                 this.nextState()
             }else{
@@ -99,15 +99,15 @@ export class MissionFightingState implements IMissionState {
     }
 
     checkState(){
-        const fighting_point = findImage(MISSION_FIGHTING)
-        const complete_point = findImage(MISSION_COMPLETE)
+        const fighting_point = m_findImage(MISSION_FIGHTING)
+        const complete_point = m_findImage(MISSION_COMPLETE)
         if(fighting_point){
-            toast('战斗中')
+            console.log('战斗中')
             return 
         }
 
         if(complete_point){
-            toast('战斗结束')
+            console.log('战斗结束')
             this.goNextState()
         }
 
@@ -136,8 +136,8 @@ export class MissionFinishState implements IMissionState {
     }
 
     checkState(){
-        toast('查找战斗结束')
-        const point = findImage(MISSION_COMPLETE)
+        console.log('查找战斗结束')
+        const point = m_findImage(MISSION_COMPLETE)
         if(point){
             this.goNextState(point)
         }
@@ -148,7 +148,7 @@ export class MissionFinishState implements IMissionState {
         RandomClick(Math.random() * device.width,Math.random() * device.height)
         
         setTimeout(() => {
-            if(findImage(MISSION_READY)){
+            if(m_findImage(MISSION_READY)){
                 this.nextState()
             }
         },getRandomSecond() + 5)
@@ -173,7 +173,7 @@ export class MissionFinishState implements IMissionState {
 //     }
 
 //     checkState(){
-//         const point = findImage(MISSION_SELECT_MENBER)
+//         const point = m_findImage(MISSION_SELECT_MENBER)
 //         if(point){
 //             return 
 //         }else{

@@ -3,20 +3,27 @@ import { MissionContext } from "./module/state/missionContext";
 
 const ARK_NIGHTS = 'com.hypergryph.arknights'
 
+let height = device.height;
+let width = device.width;
+log('宽为：' + width + '\n高为：' + height);
+setScreenMetrics(height, width);
+console.show()
+
 class Index {
     constructor() {
+
     }
 
     static main() {
         let mission = new MissionContext()
-        images.requestScreenCapture()
-        
+        images.requestScreenCapture(true)
+
         let launch_result = app.launchPackage(ARK_NIGHTS)
-        if(launch_result){
+        if (launch_result) {
             mission.start()
-        }else{
+        } else {
             exit()
-            toast('启动失败')
+            console.log('启动失败')
         }
     }
 }

@@ -22,7 +22,7 @@ export class MissionContext implements IContext{
 
     start(){
         this.currentState = this.MissionReadyState
-        toast('开始')
+        console.log('开始')
         setTimeout(() => {
             this.interval = setInterval(() => {this.currentState.checkState()}, 5 + getRandomSecond() * SECOND)
         },2)
@@ -31,7 +31,7 @@ export class MissionContext implements IContext{
     stop(){
         clearInterval(this.interval);
 
-        toast('脚本停止')
+        console.log('脚本停止')
 
         this.currentState = this.MissionReadyState
 
